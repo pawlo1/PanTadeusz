@@ -1,0 +1,78 @@
+<html>
+  <head>
+  <meta http-equiv="Content-Type"
+content="text/html;charset=UTF-8"/>
+    <script language="javascript">
+      function fkod (k) {
+        wzor=/^[0-9]{2}\-[0-9]{3}$/;
+        if(!k.value.match(wzor)){
+          alert("Niepoprawny format kodu pocztowego")
+        }
+      }
+	  
+	  function femail (e) {
+        wzor2=/^[a-zA-Z0-9]+@([a-zA-Z0-9]+\.)+[a-zA-Z0-9]{2,4}$/;
+        if(!e.value.match(wzor2)){
+          alert("Niepoprawny format adresu e-mail");
+        }
+      }
+	  function flr(l) {
+					wzor3=/^[0-9]{2}\.[0-9]{0,2}$/;
+					var lr = document.informacje.liczbaRzeczywista.value;
+					if(isNaN(lr)) {
+					alert("Wprowadzone wyrażenie nie jest liczbą rzeczywistą"); }
+					if(!l.value.match(wzor3)){
+					alert("Niepoprawny format liczby"); }
+					if(lr > 30 || lr < 10) {
+					alert("Liczba rzezczywista nie należy do przedziału <10-30>"); }
+					}
+	  function fdzientygodnia() {
+					var wybranyDzienTygodnia = document.informacje.dzienTygodnia.value;
+					var data = new Date();
+					var dzien = data.getDay(); 
+					if(dzien != wybranyDzienTygodnia) {
+						confirm("Wybrany dzień tygodnia jest inny niż dzisiejszy. \nCzy na pewno chcesz wybrać ten dzień tygodnia?"); }
+					}
+	  function fsprawdz() {
+				if (document.informacje.kod.value == "")
+				{alert("Podaj kod pocztowy!"); return false;}
+				else if (document.informacje.email.value == "")
+					{alert("Podaj adres e-mail!"); return false;}
+				else if (document.informacje.liczbaRzeczywista.value == "")
+					{alert("Podaj liczbę rzeczywistą!"); return false;}
+				else if (document.informacje.dzienTygodnia.value == "")
+					{alert("Wybierz dzień tygdodnia!"); return false;}
+				else if (document.informacje.daneosobowe.checked == false)
+					{alert("Wyraż zgodę na przetwarzanie danych osobowych!");
+					document.informacje.daneosobowe.focus();
+					return false;}
+					else {
+					 return true;}
+				}
+				 
+    </script>
+  </head>
+  <body>
+    <form name="informacje" method="post" onsubmit="return fsprawdz()">
+      Podaj kod pocztowy w formacie xx-xxx:
+      <input type="text" name="kod" maxLength=6" size="6" onBlur="fkod(this)"/><br>
+      Podaj adres e-mail:
+      <input type="text" name="email" onBlur="femail(this)"/><br>
+	  Podaj liczbę rzeczywistą: 
+	  <input type="text" name="liczbaRzeczywista" size="5" onBlur="flr(this)"/><br><br>
+			Wybierz dzień tygodnia:<br>
+				<select name="dzienTygodnia" size="7" onBlur="fdzientygodnia()">
+				<option value="1"/> Poniedziałek
+				<option value="2"/> Wtorek
+				<option value="3"/> Środa
+				<option value="4"/> Czwartek
+				<option value="5"/> Piątek
+				<option value="6"/> Sobota
+				<option value="0"/> Niedziela
+				</select><br><br>
+			<input type="checkbox" name="daneosobowe" id="tak"/>
+			<label for="tak">Wyrażam zgodę na przetwarzanie moich danych osobowych.</label><br><br>
+			<input type="submit" value="Submit"/>
+    </form>
+  </body>
+</html>

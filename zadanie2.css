@@ -1,0 +1,9 @@
+﻿body { background-color:yellow;}
+
+h2:first-line { text-decoration:underline;}
+
+h5 {line-height:2em; text-decoration:underline; font-style:italic;}
+
+p.klasa { color:green; text-align:center; letter-spacing:1pt;}
+
+

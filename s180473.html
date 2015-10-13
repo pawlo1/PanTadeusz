@@ -1,0 +1,28 @@
+<html>
+<head>
+<meta http-equiv="Content-Type"
+content="text/html;charset=UTF-8"/>
+</head>
+<body>
+
+<form method="post" action="xml.php" enctype="multipart/form-data">
+	Podaj nazwisko: <input type='text' name='nazwisko' size='10' /><br>
+<br>Wybierz płeć:<br>
+	<label for="1"><input type='radio' name='plec' value="Mezczyzna" id="1">Mężczyzna <br> </label>
+	<label for="2"><input type='radio' name='plec' value="Kobieta" id="2">Kobieta <br> </label><br>
+<select name="dni" size="7">
+	<option value="1" />Poniedziałek
+	<option value="2" />Wtorek
+	<option value="3" />Środa
+	<option value="4" />Czwartek
+	<option value="5" />Piątek
+	<option value="6" />Sobota
+	<option value="7" />Niedziela
+	</select><br><br>
+
+<input type="file" name="plik" size="40">
+<br>
+<input type="submit" value="Wyślij"/>
+</form>
+</body>
+</html>
